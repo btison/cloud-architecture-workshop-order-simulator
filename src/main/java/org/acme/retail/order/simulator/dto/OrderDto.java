@@ -11,12 +11,18 @@ public class OrderDto {
 
     private Instant timestamp;
 
+    private String status;
+
     private ShippingAddressDto shippingAddress;
 
     private List<LineItemDto> lineItems;
 
     public Long getId() {
         return id;
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public String getCustomer() {
@@ -69,6 +75,11 @@ public class OrderDto {
 
         public Builder withOrderLineItems(List<LineItemDto> lineItems) {
             orderDto.lineItems = lineItems;
+            return this;
+        }
+
+        public Builder withStatus(String status) {
+            orderDto.status = status;
             return this;
         }
 

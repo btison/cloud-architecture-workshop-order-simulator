@@ -33,6 +33,8 @@ public class OrderSimulatorService {
 
     private final Random random = new Random();
 
+    private final String[] status = {"created","processed","shipped","delivered"};
+
     public JsonObject simulate(String customerId, Integer count) {
 
         getCustomers();
@@ -90,6 +92,7 @@ public class OrderSimulatorService {
                 .withTimestamp(Instant.ofEpochMilli(System.currentTimeMillis()))
                 .withShippingAddress(shippingAddress)
                 .withOrderLineItems(lineItems)
+                .withStatus(status[random.nextInt(4)])
                 .build();
         orderService.placeOrder(order);
     }
