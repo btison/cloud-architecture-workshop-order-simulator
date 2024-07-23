@@ -1,8 +1,8 @@
 package org.acme.retail.order.simulator.model.customer;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 
 @Entity(name = "Customer")
 @Table(name = "customer")
